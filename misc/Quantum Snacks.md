@@ -58,4 +58,5 @@
   Since we have hate that makes lower bit negative we don't have to deal with 1/sqrt(2). 
 
   Right sequense: XZX
-  *-FLAG: XZX**
+  
+  **FLAG: XZX**
