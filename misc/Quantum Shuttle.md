@@ -54,7 +54,10 @@
    Refer to the previous Quantum Snacks exercise (subtask 1) where we had a number different qubit states. 
    For this exercise, we restrict ourselves to the states that you identified for that subtask.
    Can you come up with a combination (pair) of qubit states which leave the target bit the same but changed the control bit?
-   Write your answer (using the verification tool) as a list of numbers that correspond to the below equation: [A,B,C,D,E,F]. ![IMAGE](https://latex.codecogs.com/png.download?%7B%5Ccolor%7BWhite%7D%20%5Cleft%20%28%5Cfrac%7B1%7D%7B%5Csqrt%7BA%7D%7D%20%5Cbinom%7BB%7D%7BC%7D%5Cright%20%29%20%5Cotimes%20%5Cleft%20%28%20%5Cfrac%7B1%7D%7B%5Csqrt%7BD%7D%7D%20%5Cbinom%7BE%7D%7BF%7D%20%5Cright%20%29%20%7D)
+   Write your answer (using the verification tool) as a list of numbers that correspond to the below equation: [A,B,C,D,E,F]. 
+   
+   ![CodeCogsEqn2](https://user-images.githubusercontent.com/17177071/127026311-ac653c48-5a25-4986-b2de-cc23c1649fec.png)
+
 
 ####     Solution:
    All posible values for qbits are (0, 1, -1, 1/sqrt(2), -1/sqrt(2)).
@@ -86,10 +89,16 @@
 ####     Desription:
    We see some interesting behaviour related to the CNOT gate in the quantum case, it is possible to leave the target qubit the same but change the control qubit!
    There is something even stranger happening, sometimes it is possible to transform a state in such a way that we can no longer write it as a tensor product 
-   of two individual states (the qubit states become entangled). In general we can write a tensor product as follows,![IMAGE](https://latex.codecogs.com/png.download?%7B%5Ccolor%7BWhite%7D%20%5Cbegin%7Bpmatrix%7D%20%5Calpha%20%5C%5C%20%5Cbeta%20%5Cend%7Bpmatrix%7D%20%5Cotimes%20%5Cbegin%7Bpmatrix%7D%20%5Cgamma%20%5C%5C%20%5Cdelta%20%5Cend%7Bpmatrix%7D%20%3D%20%5Cbegin%7Bpmatrix%7D%20%5Calpha%20%5Cgamma%20%5C%5C%20%5Calpha%20%5Cdelta%20%5C%5C%20%5Cbeta%20%5Cgamma%20%5C%5C%20%5Cbeta%20%5Cdelta%20%5Cend%7Bpmatrix%7D%20%7D)
+   of two individual states (the qubit states become entangled). In general we can write a tensor product as follows,
+   
+   ![CodeCogsEqn](https://user-images.githubusercontent.com/17177071/127026114-92ddc256-935f-4b1e-9901-a8fcc86e1508.png)
+   
    Can you think of a two-qubit state (represented as a 4-dimensional vector, the right hand side of the above equation) that can not be written as the 
    tensor product of two individual qubit states? Write your answer (using the verification tool) as a list of numbers that correspond to the below 
-   equation: [A,B,C,D,E].![IMAGE](https://latex.codecogs.com/png.download?%7B%5Ccolor%7BWhite%7D%20%5Cfrac%7B1%7D%7B%5Csqrt%7BA%7D%7D%20%5Cbegin%7Bpmatrix%7D%20B%5C%5C%20C%5C%5C%20D%5C%5C%20E%20%5Cend%7Bpmatrix%7D%20%7D)
+   equation: [A,B,C,D,E].
+   
+   ![CodeCogsEqn3](https://user-images.githubusercontent.com/17177071/127026335-c73a2fea-4d45-41b8-b5ac-537005deef44.png)
+
 
 ####     Solution:
    Same as above, except there is only one '2'.
