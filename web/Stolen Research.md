@@ -1,35 +1,35 @@
-Stolen Research
+# Stolen Research
 
-Challenge information:
-    A malicious actor has broken into our research centre and has stolen some important information. 
-    Help us investigate their confiscated laptop memory dump! 
-    Note: if you need to crack passwords during this challenge, all potential passwords apear in rockyou-75.txt. 
-    Note 2: the pcap is only relevant for the last subtask. 
-    Note 2: do NOT attempt to brute-force rockyou-75.txt against the flag submission - it will get your IP banned.
+## Challenge information:
+  A malicious actor has broken into our research centre and has stolen some important information. 
+  Help us investigate their confiscated laptop memory dump! 
+  Note: if you need to crack passwords during this challenge, all potential passwords apear in rockyou-75.txt. 
+  Note 2: the pcap is only relevant for the last subtask. 
+  Note 2: do NOT attempt to brute-force rockyou-75.txt against the flag submission - it will get your IP banned.
 
-Files:    
-    memdump.vmem.7z
-    stolen.pcapng 
+## Files:    
+  - memdump.vmem.7z
+  - stolen.pcapng 
 
-Flag 1 [25 points]:
-    Kernel release
+### Flag 1 [25 points]:
+####   Kernel release
 
-    Desription:
-        What sort of OS and kernel is the actor using? Give us the kernel release version (the output of the 'uname -r' command).
+####   Desription:
+  What sort of OS and kernel is the actor using? Give us the kernel release version (the output of the 'uname -r' command).
 
-    Solution:
-        After greping strings with "windows" and "linux" keywords I thought actor used kali linux. I asked my teammate with kali to do "uname -r" and it was correct!
+####   Solution:
+  After greping strings with "windows" and "linux" keywords I thought actor used kali linux. I asked my teammate with kali to do "uname -r" and it was correct!
 
-Flag 2 [125 points]:
-    Tooling
+### Flag 2 [125 points]:
+####   Tooling
 
-    Desription:
-        Hope you made a good custom profile in the meantime... 
-        The attacker is using some tooling for reconaissance purposes. 
-        Give us the parent process ID, process ID, and tool name (not the process name) in the following format: PPID_PID_NAME
+####   Desription:
+  Hope you made a good custom profile in the meantime... 
+  The attacker is using some tooling for reconaissance purposes. 
+  Give us the parent process ID, process ID, and tool name (not the process name) in the following format: PPID_PID_NAME
 
-        For this we need tool "volatility". It is great tool for exploring memdumps. It needs to profile with exact OS and kernel version as dumped memry made from.
-        Lets check bash hystory.
+  For this we need tool "volatility". It is great tool for exploring memdumps. It needs to profile with exact OS and kernel version as dumped memry made from.
+  Lets check bash hystory.
 
         ```
         strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_bash
@@ -51,8 +51,8 @@ Flag 2 [125 points]:
             1254 bash                 2021-07-01 10:33:50 UTC+0000   passwd
         ```
 
-        Maltego... Interesting...
-        There is no maltego in ps list. Maybe it is in static environment variables?
+  Maltego... Interesting...
+  There is no maltego in ps list. Maybe it is in static environment variables?
 
         ```
         strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_psenv | grep maltego
@@ -64,9 +64,9 @@ Flag 2 [125 points]:
         
         ```
 
-        So we need to find java process
+  So we need to find java process
         
-        What PPID malego has?
+  What PPID malego has?
 
         ```
         strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_pstree 
@@ -80,18 +80,18 @@ Flag 2 [125 points]:
 
         ```
 
-        There it is. PPID: 1082. PID: 1208. NAME: maltego.
+  There it is. PPID: 1082. PID: 1208. NAME: maltego.
 
-        KEY: 1082_1208_maltego.
+  **FLAG: 1082_1208_maltego.**
 
-Flag 3 [100 points]
-    Password of the actor
+### Flag 3 [100 points]
+####   Password of the actor
 
-    Desription:
-        What is the password of the actor?
+####   Desription:
+  What is the password of the actor?
 
-    Solution:
-        Dump all filesystem with ```vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_recover_filesystem -D dump``` and check shadow file:
+####   Solution:
+  Dump all filesystem with ```vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_recover_filesystem -D dump``` and check shadow file:
 
         ```
         strongleong@WIN-U8I7TONIUR7:~/dump$ cat etc/shadow
@@ -111,9 +111,4 @@ Flag 3 [100 points]
         Session completed
         ```
 
-        Flag: security1
-
-Flag 4 [50 points]
-    Password of the share
-
-    SUPITTO FINISH THIS PLS
+  **Flag: security1**
