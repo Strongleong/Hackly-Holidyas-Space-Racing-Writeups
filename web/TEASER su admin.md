@@ -7,6 +7,9 @@
 
 ## Files:
   - admin_flag.png
+  
+  ![admin_flag(1)](https://user-images.githubusercontent.com/17177071/127029535-43ce9c84-7229-4548-9c85-31f1e9ee6a68.png)
+  
 
 ### Flag 1 [50 points]:
 ####   Identify yourself
@@ -26,5 +29,9 @@
         ``` /flagdesigner/api/flag/7/15/9/5/2/4/3/1.svg ```
 
    We get the flag now. The flag is in an image.
+   
+   ![изображение](https://user-images.githubusercontent.com/17177071/127030359-f59a4eae-94b0-4872-aa86-c0f2e2034f95.png)
+
+   
 
    **FLAG: CTF{YOU-HAZ-ADMIN-FLAG}**
