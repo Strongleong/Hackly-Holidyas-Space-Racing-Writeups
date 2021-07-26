@@ -7,6 +7,9 @@ Challenge information:
     Note 2: the pcap is only relevant for the last subtask. 
     Note 2: do NOT attempt to brute-force rockyou-75.txt against the flag submission - it will get your IP banned.
 
+Files:    
+    memdump.vmem.7z
+    stolen.pcapng 
 
 Flag 1 [25 points]:
     Kernel release
