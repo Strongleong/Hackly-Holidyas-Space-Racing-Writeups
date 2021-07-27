@@ -17,4 +17,5 @@
 
 ####   Solution:
   The file contains NT:LM hash. With hint we can crack it with attack by mask with hashcat.
+  
   **FLAG: H4cky21**
