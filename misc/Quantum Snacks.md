@@ -48,7 +48,8 @@
   So to get from (1, 0) to (-1, 0) we must flip qbit (X (0, 1)), then make the lower bit negative (H (0, -1/sqrt(2))), then flip it again with (X (-1/sqrt(2), 0)) and get rid of this square root term (H (-1, 0))
 
   Right sequence: XHXH
-  **FLAG: CTF{quantum_circuit_master} **
+  
+  **FLAG: CTF{quantum_circuit_master}**
 
 
 ### Flag 3 [50 points]:
