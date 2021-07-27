@@ -1,7 +1,7 @@
 # Quantum Shuttle
 
 ## Challenge information:
-   In Quαntum Snαcks we discussed qubits αnd single qubit gαtes. In this exercise we will move on to multible qubits.
+   In Quαntum Snαcks we discussed qubits αnd single qbit gαtes. In this exercise we will move on to multible qubits.
    For this question we will look at a the controlled NOT-gate. 
    In the classical controlled-NOT two bits are input and the output can be described as follows: 
    the first bit (control bit) does not change, the second bit (target bit) flips (NOT-gate) if the control bit is 1.
