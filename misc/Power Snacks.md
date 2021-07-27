@@ -111,7 +111,7 @@ $res | sort -Property @{Expression="Count";Descending=$True} |  Check
   ```
 
 ####   Solution:
-  It is easier then last flag. Just loop for the passwords file and if category is "names" save pass in array as {Len, Pass} object where "Len" is length of password (for simple sorting).
+  This is a bit easier than the last flag. We will just loop for the passwords file and if the category is "names" then we will save password in an array as {Len, Pass} object where "Len" is the length of password (for simple sorting).
 
 ####   Script:
 ```
