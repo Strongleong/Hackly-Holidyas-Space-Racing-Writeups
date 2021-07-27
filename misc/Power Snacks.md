@@ -54,8 +54,8 @@ password        20      security        1
 .............
 ```
 
-  So it have 5 columns. We need only one: category. 
-  There is my plan of action: first we need to get all categories and sort them. Then count categorites and save it as {Category; Count} object. Then sort this object and we all set!
+  Ok, so it has 5 columns. We need only one category. 
+  This is my plan of action: First we need to get all of the categories and then sort them. Then we will count the categories and save them as {Category; Count} object. Then we will sort this object and we are all set!
   
 ### Script:
 ```
