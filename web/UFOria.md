@@ -48,6 +48,7 @@
   And the third part is sum of charcodes of UFO letters ("234")
 
   So the invite code is: "UFO-VUZP-234"
+  
   **Flag: UFO-VUZP-234**
 
 ### Flag 2 [75 points]: 
