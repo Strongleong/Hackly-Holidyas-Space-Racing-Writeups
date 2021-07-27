@@ -37,10 +37,13 @@
 , only using the H and X operations. A possible (wrong) answer is HHXHXHXH.
 
 ####   Solution:
-  First of all, I tried to really understand what these gates do to the qbits. This is what I understood:
-    X just flips the qbit. Example: was (1, 0), then (0, 1)
-    Z just multiplies the lower bit to -1. Example: was (1, 1), then (1, -1)
-    H is the weirdest gate. It is multiply lower bit to -1 and every bit to 1/sqrt(2). Example: was (1, 1), then (1/sqrt(2), -1/sqrt(2)). If bit is 1/sqrt(2) it makes it 1.
+  First of all, I tried to really understand what these gates do to the qbits. This is what I understood
+     
+ X just flips the qubit. Example: was (1, 0), then (0, 1)
+    
+ Z just multiplies the lower bit to -1. Example: was (1, 1), then (1, -1)
+     
+ H is the weirdest gate. It is multiply lower bit to -1 and every bit to 1/sqrt(2). Example: was (1, 1), then (1/sqrt(2), -1/sqrt(2)). If bit is 1/sqrt(2) it makes it 1.
   
   So to get from (1, 0) to (-1, 0) we must flip qbit (X (0, 1)), then make the lower bit negative (H (0, -1/sqrt(2))), then flip it again with (X (-1/sqrt(2), 0)) and get rid of this square root term (H (-1, 0))
 
