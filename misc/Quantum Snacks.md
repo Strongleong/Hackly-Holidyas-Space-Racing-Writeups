@@ -20,43 +20,44 @@
 ### Flag 1 [50 points]:
 ####   How many states?
 
-####   Desription:
+####   Description:
   Considering only these 3 logic gates, and starting in the (1, 0) state, how many states can the qubit have? Hint: Start applying the logic gates in random order. Drawing the result in x-y coordinates will greatly help you understand the result. 
 
 ####   Solution:
-  Actually I don't know actulal soliton. I was to lazy to make math for all of this and I just brutefroced it by hand. 
-  I was distracted by communicating with the team during brutefrocing and when it was solved I didn't pay attention to what number I trying (hands done it automaticly).
-  But it was between 80 and 100 :D
+  Actually I didn't know actual soluton. I was too lazy to make the math for all of this and I just bruteforced the site by hand. 
+  I was distracted by communicating with the team during bruteforcing and when it was solved I didn't pay attention to what number I trying (my hands did it automatically).
+  But I do remember the number was between 80 and 100 :D
 
 ### Flag 2 [50 points]:
 ####   Make a circuit
 
-####   Desription:
+####   Description:
   Provide a circuit (a series of operations) that transforms the state ![CodeCogsEqn](https://user-images.githubusercontent.com/17177071/127027624-fbc23c5d-931b-46e9-af3c-ab6c3954114f.png)
  to the state ![CodeCogsEqn5](https://user-images.githubusercontent.com/17177071/127027642-c5b8afde-12dd-4bc0-945d-593f23199e8b.png)
 , only using the H and X operations. A possible (wrong) answer is HHXHXHXH.
 
 ####   Solution:
-  I tried to understand what these gates do to qbits. That wah I got:
-    X is just flips qbit. Example: was (1, 0), then (0, 1)
-    Z is multiply lower bit to -1. Example: was (1, 1), then (1, -1)
-    H is most wiredest gate. It is multiply lower bit to -1 and every bit to 1/sqrt(2). Example: was (1, 1), then (1/sqrt(2), -1/sqrt(2)). If bit is 1/sqrt(2) it makes it 1.
+  First of all, I tried to really understand what these gates do to the qbits. This is what I understood:
+    X just flips the qbit. Example: was (1, 0), then (0, 1)
+    Z just multiplies the lower bit to -1. Example: was (1, 1), then (1, -1)
+    H is the weirdest gate. It is multiply lower bit to -1 and every bit to 1/sqrt(2). Example: was (1, 1), then (1/sqrt(2), -1/sqrt(2)). If bit is 1/sqrt(2) it makes it 1.
   
-  So to get from (1, 0) to (-1, 0) we must flip qbit (X (0, 1)), then make lower bit negative (H (0, -1/sqrt(2))), then flip again (X (-1/sqrt(2), 0)) and get rid of this sqrt bullshit (H (-1, 0))
+  So to get from (1, 0) to (-1, 0) we must flip qbit (X (0, 1)), then make the lower bit negative (H (0, -1/sqrt(2))), then flip it again with (X (-1/sqrt(2), 0)) and get rid of this square root term (H (-1, 0))
 
-  Right sequense: XHXH
+  Right sequence: XHXH
   **FLAG: CTF{quantum_circuit_master} **
 
 
 ### Flag 3 [50 points]:
 ####   Short circuit
    
-####   Desription:
+####   Description:
   Same as question 2 but now provide the shortest circuit possible (minimal number of gates). You are allowed to use H, X and Z.
+  So first we flip with (X, (0, 1)), then we multiply with -1 by (Z, (0, -1)), and we flip again with (X, (-1, 0))
 
 ####   Solution:
-  Since we have hate that makes lower bit negative we don't have to deal with 1/sqrt(2). 
+  Since we have the gate that makes the lower bit negative we don't have to deal with 1/sqrt(2). 
 
-  Right sequense: XZX
+  Right sequence: XZX
   
   **FLAG: XZX**
