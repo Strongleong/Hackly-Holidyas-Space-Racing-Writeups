@@ -19,6 +19,8 @@
 
 ####   Solution:
   After grepping strings with "windows" and "linux" keywords, I finally thought that the actor was using Kali Linux. I asked my teammate with Kali to run the command "uname -r" and the result was correct!
+  
+  **FLAG 5.10.0-kali8-amd64**
 
 ### Flag 2 [125 points]:
 ####   Tooling
