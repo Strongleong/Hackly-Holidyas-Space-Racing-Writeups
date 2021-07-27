@@ -18,7 +18,7 @@
   What sort of OS and kernel is the actor using? Give us the kernel release version (the output of the 'uname -r' command).
 
 ####   Solution:
-  After greping strings with "windows" and "linux" keywords I thought actor used kali linux. I asked my teammate with kali to do "uname -r" and it was correct!
+  After grepping strings with "windows" and "linux" keywords, I finally thought that the actor was using Kali Linux. I asked my teammate with Kali to run the command "uname -r" and the result was correct!
 
 ### Flag 2 [125 points]:
 ####   Tooling
@@ -28,8 +28,10 @@
   The attacker is using some tooling for reconaissance purposes. 
   Give us the parent process ID, process ID, and tool name (not the process name) in the following format: PPID_PID_NAME
 
-  For this we need tool "volatility". It is great tool for exploring memdumps. It needs to profile with exact OS and kernel version as dumped memry made from.
-  Lets check bash hystory.
+#### Solution
+
+  For this we will use the tool "Volatility". It is a very great tool for exploring memory dumps. It needs to have a profile with the exact OS and kernel version as the computer from the dumped memory.
+  Let's check bash history.
 
 ```        
 strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_bash
@@ -52,7 +54,7 @@ Pid      Name                 Command Time                   Command
 ```        
 
   Maltego... Interesting...
-  There is no maltego in ps list. Maybe it is in static environment variables?
+  There is no maltego in powershell list. So maybe it is in the static environment variables?
 
 ```        
 strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_psenv | grep maltego
@@ -64,9 +66,9 @@ java              1208   SHELL=/bin/bash SESSION_MANAGER=local/kali:@/tmp/.ICE-u
 ```        
         
 
-  So we need to find java process
+  So we need to find a java process. Hmm..
         
-  What PPID malego has?
+  What is Maltego's PPID?
 
 ```        
 strongleong@WIN-U8I7TONIUR7:~$ vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_pstree 
@@ -91,7 +93,7 @@ WARNING : volatility.debug    : Overlay structure cpuinfo_x86 not present in vty
   What is the password of the actor?
 
 ####   Solution:
-  Dump all filesystem with ```vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_recover_filesystem -D dump``` and check shadow file:
+  So now we will dump the full filesystem ```vol.py --profile Linux5_10_0-kali8-amd64x64 -f memdump.vmem linux_recover_filesystem -D dump``` and check the shadow file:
   
 ```
 strongleong@WIN-U8I7TONIUR7:~/dump$ cat etc/shadow
@@ -100,7 +102,7 @@ root:!:18777:0:99999:7:::
 invictus:$y$j9T$i6GkFortXamhKHY0bpTN.0$FLCqzsvVB1ZnfpffqSuvdLgzwLJvkmz6.aHfyoo11NB:18808:0:99999:7:::
 ```
 
-It is unusual hash. $y means yescript. We can crack it with john:
+Ok, it is unusual hash. $y means yescrypt encryption. So we can crack it with johntheripper and we get:
 ```
 strongleong@WIN-U8I7TONIUR7:~$ john --format=crypt -w=rockyou-75.txt hash
 Loaded 1 password hash (crypt, generic crypt(3) [?/64])
