@@ -54,4 +54,4 @@ Since there is a jar file, I go to an online decompiler, and I get a java file. 
 
 Since 333+942+142 = So we simply get our solution as "CTF{bowsh0ckd_1417}"
 
-**FLAG**: CTF{bowsh0ckd_1417}
+**FLAG: CTF{bowsh0ckd_1417}**
