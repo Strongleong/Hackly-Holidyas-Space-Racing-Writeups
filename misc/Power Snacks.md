@@ -35,13 +35,14 @@ $(for ($i = 1; $i -le 1337; $i++) {
 
 ####   Description:
   In the tab-separated file "passwords.tsv" you get an overview of often-used passwords. Can you give us an overview of the number of passwords per category? Sort the result by descending count. Example excerpt given below:
+ ```
   Name     Count
   ----     -----
   ..          ..
   nerdy       30
   animal      19
   ..          .. 
-
+```
 #### Solution:
   Lets look at the "passwords.tsv" file:
 ```
@@ -100,12 +101,14 @@ $res | sort -Property @{Expression="Count";Descending=$True} |  Check
 
 ####   Description:
   Given the passwords file, supply a list of passwords from the 'names' category ordered first by ascending password length, then alphabetically. Example excerpt given below:
+  ```
   ..
   scott
   steve
   albert
   alexis
   ..
+  ```
 
 ####   Solution:
   It is easier then last flag. Just loop for the passwords file and if category is "names" save pass in array as {Len, Pass} object where "Len" is length of password (for simple sorting).
